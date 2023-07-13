@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
-from ..schemas import CategoryCreate, CategoryUpdate, Category
+from ..schema import CategoryCreate, CategoryUpdate, Category
 from ..controllers.categories import CategoriesController
 from ..dependencies import get_db
 

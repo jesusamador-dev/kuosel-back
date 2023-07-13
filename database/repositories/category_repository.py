@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
-from .schemas import CategoryCreate, CategoryUpdate
-from .models import Category
+from schemas import CategoryCreate, CategoryUpdate
+from models import Category
 
 
 class CategoryRepository:
