@@ -8,7 +8,7 @@ from app.dependencies import container
 
 
 class CategoriesController:
-    def __init__(self, db: Session = container.session.provided):
+    def __init__(self, db: Session = container.session):
         self.db = db
         self.repository = CategoryRepository(self.db)
 

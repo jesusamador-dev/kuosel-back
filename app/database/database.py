@@ -32,5 +32,3 @@ class Database:
             self._connection.close()
             self._connection = None
 
-
-database = Database()
