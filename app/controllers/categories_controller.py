@@ -1,4 +1,6 @@
-from fastapi import Depends, HTTPException
+from typing import List
+
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app.schemas import Category, CategoryUpdate, CategoryCreate
 from app.database.repositories import CategoryRepository
@@ -8,6 +10,9 @@ class CategoriesController:
     def __init__(self):
         self.db = Session()
         self.repository = CategoryRepository(self.db)
+
+    def get_categories_all(self) -> List[Category]:
+        return self.repository.get_categories_all()
 
     def create_category(self, category: CategoryCreate) -> Category:
         return self.repository.create_category(category=category)

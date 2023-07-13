@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from sqlalchemy import exc
 from app.schemas import CategoryCreate, CategoryUpdate
 from app.database.models import Category
+from typing import List
 
 
 class CategoryRepository:
@@ -17,6 +18,9 @@ class CategoryRepository:
 
     def get_category(self, category_id: int) -> Category:
         return self.db.query(Category).filter(Category.id == category_id).first()
+
+    def get_categories_all(self) -> List[Category]:
+        return self.db.query(Category).all()
 
     def update_category(self, category_id: int, category: CategoryUpdate) -> Category:
         db_category = self.db.query(Category).filter(Category.id == category_id).first()
