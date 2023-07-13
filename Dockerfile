@@ -2,7 +2,7 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
 # Establecer el directorio de trabajo en el contenedor
-WORKDIR /app
+WORKDIR /main
 
 # Copiar los archivos de la aplicación al contenedor
 COPY /app /main/app
