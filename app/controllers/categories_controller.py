@@ -4,11 +4,12 @@ from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from app.schemas import Category, CategoryUpdate, CategoryCreate
 from app.database.repositories import CategoryRepository
+from app.dependencies import container
 
 
 class CategoriesController:
-    def __init__(self):
-        self.db = Session()
+    def __init__(self, db: Session = container.session.provided):
+        self.db = db
         self.repository = CategoryRepository(self.db)
 
     def get_categories_all(self) -> List[Category]:
