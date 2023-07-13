@@ -5,7 +5,7 @@ FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 WORKDIR /app
 
 # Copiar los archivos de la aplicación al contenedor
-COPY app/ /app
+COPY /app /main/app
 
 # Instalar las dependencias
 RUN pip install --no-cache-dir -r /app/requirements.txt
