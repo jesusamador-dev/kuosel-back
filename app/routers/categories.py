@@ -1,11 +1,15 @@
-from fastapi import APIRouter, Depends
-from sqlalchemy.orm import Session
+from fastapi import APIRouter
 from app.schemas import CategoryCreate, CategoryUpdate, Category
 from app.controllers.categories_controller import CategoriesController
 
 router = APIRouter()
 
 controller = CategoriesController()
+
+
+@router.get("/categories", response_model=list[Category])
+def get_categories_all():
+    return controller.get_categories_all()
 
 
 @router.post("/categories", response_model=Category)
