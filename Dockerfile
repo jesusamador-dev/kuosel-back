@@ -14,6 +14,6 @@ RUN pip install --no-cache-dir -r /main/app/requirements.txt
 EXPOSE 8000
 
 # Establece el comando de inicio para ejecutar la aplicación
-CMD ["uvicorn", "main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main.app.main:app", "--proxy-headers", "--host", "0.0.0.0", "--port", "8000"]
 
 LABEL name="kuosel-back"
