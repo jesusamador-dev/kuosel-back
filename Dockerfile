@@ -1,14 +1,16 @@
 # Utiliza una imagen oficial de Python como imagen base
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.10
 
-# Establece el directorio de trabajo en el contenedor como /app
+# Establecer el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copia el contenido del directorio kuosel-back en la máquina local al directorio /app en el contenedor
-COPY /app /app
+# Copiar los archivos de la aplicación al contenedor
+COPY app/ /app
+COPY database/ /app/database
+COPY services/ /app/services
 
-# Instala las dependencias necesarias
-#RUN pip install --no-cache-dir -r /app/requirements.txt
+# Instalar las dependencias
+RUN pip install --no-cache-dir -r /app/requirements.txt
 
 # Expone el puerto en el que se ejecuta la aplicación
 EXPOSE 8000
