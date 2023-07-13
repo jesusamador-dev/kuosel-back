@@ -1,6 +1,7 @@
 from sqlalchemy.orm import Session
-from schemas import CategoryCreate, CategoryUpdate
-from models import Category
+from sqlalchemy import exc
+from app.schemas import CategoryCreate, CategoryUpdate
+from app.database.models import Category
 
 
 class CategoryRepository:
@@ -25,6 +26,11 @@ class CategoryRepository:
         self.db.refresh(db_category)
         return db_category
 
-    def delete_category(self, category_id: int) -> None:
-        self.db.query(Category).filter(Category.id == category_id).delete()
-        self.db.commit()
+    def delete_category(self, category_id: int) -> bool:
+        try:
+            category = self.db.query(Category).filter(Category.id == category_id).delete()
+            self.db.commit()
+            return category > 0
+        except exc.SQLAlchemyError:
+            self.db.rollback()
+            return False
