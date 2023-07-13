@@ -1,16 +1,20 @@
 from pydantic import BaseModel
 from datetime import datetime
 
+
 class MovementBase(BaseModel):
     name: str
     amount: float
     category_id: int
 
+
 class MovementCreate(MovementBase):
     created_at: datetime
 
+
 class MovementUpdate(MovementBase):
     updated_at: datetime
+
 
 class Movement(MovementBase):
     id: int
@@ -19,4 +23,4 @@ class Movement(MovementBase):
     updated_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
