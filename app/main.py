@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from routers import categories, movements
+from app.routers import categories, movements
 
 app = FastAPI()
 

@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copiar los archivos de la aplicación al contenedor
 COPY app/ /app
-COPY database/ /app/database
+COPY app/database/ /app/database
 
 # Instalar las dependencias
 RUN pip install --no-cache-dir -r /app/requirements.txt
