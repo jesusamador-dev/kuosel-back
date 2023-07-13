@@ -4,6 +4,7 @@ from datetime import datetime
 
 class CategoryBase(BaseModel):
     name: str
+    description: str
 
 
 class CategoryCreate(CategoryBase):
