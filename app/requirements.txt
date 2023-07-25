@@ -1,3 +1,4 @@
-SQLAlchemy==2.0.18
-pymysql==1.1.0
-dependency-injector==4.41.0
+app==0.0.1
+fastapi==0.100.0
+pydantic==2.0.3
+SQLAlchemy==2.0.19
