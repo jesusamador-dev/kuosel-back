@@ -3,6 +3,8 @@ from pydantic import BaseModel
 
 class CategoryBase(BaseModel):
     name: str
+    type: str
+    icon: str
 
 
 class CategoryCreate(CategoryBase):
@@ -11,7 +13,6 @@ class CategoryCreate(CategoryBase):
 
 class Category(CategoryBase):
     id: int
-    user_id: str
 
     class Config:
         from_attributes = True

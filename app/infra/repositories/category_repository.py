@@ -2,7 +2,7 @@ from fastapi import Depends
 from sqlalchemy.orm import Session
 
 from app.db.data_base import get_db
-from app.schemas.category_schema import Category
+from app.domain.models.Category import Category
 
 
 class CategoryRepository:
